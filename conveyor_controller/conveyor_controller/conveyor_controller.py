@@ -27,6 +27,8 @@ class ConveyorController(Node):
 
     def pub_state_cb(self):
         state_msg = ConveyorState()
+        state_msg.enabled = self.enabled
+        state_msg.speed = self.speed
         state_msg.direction = self.direction
 
         self.pub_state.publish(state_msg)
